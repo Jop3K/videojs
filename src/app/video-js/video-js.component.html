@@ -1,0 +1,138 @@
+<div class="wrapper one-nav-pad">
+  <div class="container-fluid h-100">
+    <div class="row m-0 w-100 h-100">
+      <div class="col-12 p-0">
+        <div class="header d-flex align-items-center justify-content-center h-100">
+          <h1 class="m-0 text-center">VideoJS player builder</h1>
+        </div>
+      </div>
+      <div class="col-12 p-0">
+        <div class="video-section d-flex align-items-center justify-content-center h-100">
+          <video id="video_player" class="video-js vjs-big-play-centered" controls preload="auto"
+            data-setup="{}">
+            <source src="assets/video/SampleVideo_1280x720_30mb.mp4" type='video/mp4'>
+            <p class="vjs-no-js">
+              To view this video please enable JavaScript, and consider upgrading to a web browser that
+              <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+          </video>
+        </div>
+      </div>
+      <div class="col-6 mt-5 border">
+        <h3 class="text-center">Settings</h3>
+        <h4><u>Basic</u></h4>
+
+        <form>
+          <div class="form-group">
+            <label for="playerWidth">Width(pixels)</label>
+            <input type="text" id="playerWidth" [formControl]="playerWidth" [(ngModel)]="pWidth" class="form-control"
+              placeholder="player width...">
+            <label for="playerHeight">Height(pixels)</label>
+            <input type="text" id="playerHeight" [formControl]="playerHeight" class="form-control"
+              placeholder="player height...">
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" [formControl]="playerAutoplay" type="radio" name="exampleRadios"
+              id="exampleRadios1" [value]="false">
+            <label class="form-check-label" for="exampleRadios1">
+              Autoplay OFF
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [formControl]="playerAutoplay" type="radio" name="exampleRadios"
+              id="exampleRadios2" [value]="true">
+            <label class="form-check-label" for="exampleRadios2">
+              Autoplay ON
+            </label>
+          </div>
+          <div class="form-check disabled">
+            <input class="form-check-input" [formControl]="playerAutoplay" type="radio" name="exampleRadios"
+              id="exampleRadios3" value="muted">
+            <label class="form-check-label" for="exampleRadios3">
+              Autoplay ON(muted)
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" [formControl]="playerLoop" type="checkbox" value="" id="playerLoop">
+            <label class="form-check-label" for="playerLoop">
+              Loop
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" [formControl]="playerMuted" type="checkbox" value="" id="playerMuted">
+            <label class="form-check-label" for="playerMuted">
+              Mute
+            </label>
+          </div>
+
+        <hr>
+
+          <h4><u>Advanced</u></h4>
+
+          <div class="form-group">
+            <label for="playerPoster">Poster(url)</label>
+            <input type="text" id="playerPoster" [formControl]="playerPoster" class="form-control"
+              placeholder="player poster...">
+            <label for="playerSrc">MP4 Source(url)</label>
+            <input type="text" id="playerSource" [formControl]="playerSource" class="form-control"
+              placeholder="player source...">
+          </div>
+<!-- 
+          <h4><u>Custom style</u></h4>
+
+          <div class="form-check">
+              <input class="form-check-input" [formControl]="playerStyle" type="checkbox" value="" id="playerStyle">
+              <label class="form-check-label" for="playerStyle">
+                Metropolia
+              </label>
+            </div> -->
+
+            <!-- <div class="form-check">
+                <input class="form-check-input" [formControl]="playerStyle2" type="checkbox" value="" id="playerStyle2">
+                <label class="form-check-label" for="playerStyle2">
+                  Style 2
+                </label>
+              </div> -->
+  
+
+        </form>
+
+        <button type="submit" class="btn btn-success mt-2" (click)="refresh()">Save & Refresh</button>
+      </div>
+
+      <div class="col-6 mt-5">
+        <h5 class="text-center"><u>Applied settings</u></h5>
+        <p>Width: {{playerWidth.value}}</p>
+        <p>Height: {{playerHeight.value}}</p>
+        <p>Autoplay: {{playerAutoplay.value}}</p>
+        <p>Loop: {{playerLoop.value}}</p>
+        <p>Muted: {{playerMuted.value}}</p>
+        <p>Media source: {{playerSource.value}}</p>
+        <p>Player poster: {{playerPoster.value}}</p>
+        <!-- <p>Style: {{playerStyle.value}}</p> -->
+      </div>
+
+      <div class="col-12 mt-5">
+        <h4><u>How To</u></h4>
+
+        <h5>Sample MP4 sources to test:</h5>
+
+        
+        <ul style="list-style-type:none">
+          <li><i>IGN:</i></li>
+          <li>//assets3.ign.com/videos/zencoder/2016/06/15/640/7080c56a76e2b74ec8ecfe4c224441d4-500000-1466028542-w.mp4</li>
+        </ul>
+
+        <h5>Sample posters to test:</h5>
+
+        <ul style="list-style-type:none">
+          <li><i>Metropolia:</i></li>
+          <li>https://wiki.metropolia.fi/download/attachments/29200983/reititin?version=2&modificationDate=1317647700000&api=v2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
