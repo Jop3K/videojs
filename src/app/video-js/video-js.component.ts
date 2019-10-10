@@ -3,9 +3,6 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import videojs from 'video.js';
 import { FormControl } from '@angular/forms';
 
-//declare var videojs: any;
-
-
 
 @Component({
   selector: 'app-video-js',
@@ -42,14 +39,17 @@ export class VideoJsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+
+
+
     this.initVideoJs();
 
-    
   }
 
   initVideoJs() {
 
-    this.customVideoClass = 'vjs-matrix';
+    //this.customVideoClass = 'vjs-matrix';
+
 
     this.videoJSplayer = videojs('video_player', {
       controlBar: {
@@ -59,14 +59,11 @@ export class VideoJsComponent implements OnInit, AfterViewInit {
       width: '500'
     });
 
-   
-    // Color green onInit
-    this.videoJSplayer.addClass(this.customVideoClass);
+       // Color onInit
+      this.videoJSplayer.addClass(this.customVideoClass);
 
 
-    // const transcript = this.videoJSplayer.transcript();
-    // const transcriptCon = document.querySelector('#transcriptContainer');
-    // transcriptCon.appendChild(transcript.el());
+
   }
 
   getId(url) {
