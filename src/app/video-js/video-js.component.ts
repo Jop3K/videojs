@@ -19,6 +19,7 @@ export class VideoJsComponent implements OnInit, AfterViewInit {
   playerPoster = new FormControl('');
   playerSource = new FormControl('');
   playerStyle = new FormControl('');
+  //playerFsToggle = new FormControl('');
 
   pWidth;
   pHeight;
@@ -35,7 +36,7 @@ export class VideoJsComponent implements OnInit, AfterViewInit {
 
     // var style = document.createElement('style');
     // style.type = 'text/css';
-    // style.innerHTML = 'vjs-matrix'
+    // style.innerHTML = 'vjs-matrix';
   }
 
   ngAfterViewInit(): void {
@@ -51,16 +52,18 @@ export class VideoJsComponent implements OnInit, AfterViewInit {
     //this.customVideoClass = 'vjs-matrix';
 
 
+    // Change controlBar settings (HowTo Link)
+    // https://github.com/videojs/video.js/blob/6e579ba4dae1ee93639571644acc627c305117e9/docs/guides/components.md
     this.videoJSplayer = videojs('video_player', {
-      controlBar: {
-        fullscreenToggle: false,
-        currentTimeDisplay: true
-      },
+      // controlBar: {
+      //   fullscreenToggle: false,
+      //   currentTimeDisplay: true
+      // },
       width: '500'
     });
 
        // Color onInit
-      this.videoJSplayer.addClass(this.customVideoClass);
+      //this.videoJSplayer.addClass(this.customVideoClass);
 
 
 
@@ -98,12 +101,12 @@ export class VideoJsComponent implements OnInit, AfterViewInit {
   
     // play seem to trigger to fast before Youtube is ready
     
-    //vgsPlayer.pause();
-  //	vgsPlayer.load();
+    // this.videoJSplayer.pause();
+  	// this.videoJSplayer.load();
     this.videoJSplayer.play();
-  /*   setTimeout(function() {
-      vgsPlayer.play();
-    }, 500); */
+    //  setTimeout(function() {
+    //   this.videoJSplayer.play();
+    // }, 500); 
     
     return false;
   
@@ -183,14 +186,9 @@ export class VideoJsComponent implements OnInit, AfterViewInit {
 
     this.videoJSplayer.poster(this.playerPoster.value);
 
-    // if(this.playerStyle.value == true){
-    //   this.customPlayerStyle = true;
-    // } else if ( this.playerStyle.value == false) {
-    //   this.customPlayerStyle = false;
-    // }
+    //this.videoJSplayer.controlBar.fullscreenToggle.value = this.playerFsToggle.value;
 
-    //this.videoJSplayer.src(this.playerSource.value);
-
+  
     console.log(type);
     this.videoJSplayer.src({
       "src": this.playerSource.value,
